@@ -30,6 +30,14 @@
         No Match Found
       </p>
     </ng-template>
+
+    <ng-container *ngIf="selectedValue && selectedValue != ''; then yes else no"></ng-container>
+    <ng-template #yes>
+      <p>You are selected Some value</p>
+    </ng-template>
+    <ng-template #no>
+      <p>You are not selected any value</p>
+    </ng-template>
   </div>
 </div>
 </div>
