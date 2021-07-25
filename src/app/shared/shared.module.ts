@@ -16,7 +16,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     ReactiveFormsModule,
     RouterModule,
   ],
-  declarations: [
+  declarations: [ 
     HeaderComponent,
     FooterComponent
   ],

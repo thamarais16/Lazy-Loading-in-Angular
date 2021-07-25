@@ -3,8 +3,33 @@
     <h2>Dashboard Component</h2>
   </div>
   <div class="card-body">
-  <p>
+  <div class="form-group">
+    <label for="values">Select Value</label>
+    <select name="values" id="values" class="form-control" [(ngModel)]="selectedValue">
+      <option *ngFor="let item of items" [value]="item.name">{{item.name}}</option>
+    </select>
+
+    <ng-container [ngSwitch]="selectedValue">
+      <ng-template [ngSwitchCase]="'One'">
+        <ng-container *ngTemplateOutlet="Match"></ng-container>
+      </ng-template>
+      <ng-template ngSwitchDefault>
+        <ng-container *ngTemplateOutlet="Match2"></ng-container>
+    </ng-template>
+    </ng-container>
+
     
-  </p>
+    
+    <ng-template #Match>
+      <p [ngStyle]="styles">
+        Match Found
+      </p>
+    </ng-template>
+    <ng-template #Match2>
+      <p [ngStyle]="styles2">
+        No Match Found
+      </p>
+    </ng-template>
+  </div>
 </div>
 </div>
