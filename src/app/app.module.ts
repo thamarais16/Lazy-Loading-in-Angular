@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { AdminModule } from './admin';
+// import { AdminModule } from './admin';
 import { SharedModule } from './shared';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule, AdminModule, SharedModule ],
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule, SharedModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule { } 
