@@ -19,4 +19,8 @@ import { FormsModule } from '@angular/forms';
     AdminRoutingModule
   ],
 })
-export class AdminModule { }
+export class AdminModule { 
+  constructor(){
+    alert("admin modulae");
+  }
+}
