@@ -7,13 +7,13 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 // import { AdminModule } from './admin';
 import { SharedModule } from './shared';
-import { CustomPreloadingStrategyService } from './custom-preloading-strategy.service';
+import { CustomPreloadingStrategy } from './custom-preloading-strategy.service';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule, SharedModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [CustomPreloadingStrategyService]
+  providers: [CustomPreloadingStrategy]
 })
 export class AppModule { } 

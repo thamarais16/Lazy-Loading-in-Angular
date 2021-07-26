@@ -13,4 +13,9 @@ import { TestComponent } from './pages/test/test.component';
   ],
   declarations: [TestComponent]
 })
-export class TestModule { }
+export class TestModule {
+
+  constructor(){
+    alert("preloading test module");
+  }
+ }
