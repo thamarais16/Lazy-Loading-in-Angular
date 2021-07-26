@@ -16,6 +16,6 @@ import { TestComponent } from './pages/test/test.component';
 export class TestModule {
 
   constructor(){
-    alert("preloading test module");
+    alert("preloading test module"); 
   }
  }
