@@ -15,6 +15,6 @@ import { AuthGuardService } from './auth-guard.service';
   imports:      [ BrowserModule, FormsModule, AppRoutingModule, SharedModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [CustomPreloadingStrategy, AuthGuardService]
+  providers: [CustomPreloadingStrategy, AuthGuardService] 
 })
 export class AppModule { } 
