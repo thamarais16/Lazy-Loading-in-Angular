@@ -10,11 +10,11 @@ export class AuthGuardService implements CanLoad {
 
   canLoad(route: Route): boolean{
     let url = route.path;
-    if (url=='admin') {
+    if (url=='test') {
       alert('You are not authorised to visit this page');
       return false;
     }  
     return true; 
   }
 
-}
+} 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubService }from '../../../core/models/services';
+import { Repos }from '../../../core/models/repos';
+
 
 @Component({
   selector: 'app-user',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  repos: Repos[];
+
+  constructor(
+   private github: GithubService
+  ) { }
 
   ngOnInit() {
+    this.getRepos();
+  }
+
+  getRepos(){
+    this.github.getRepos().subscribe(
+      (value) => {
+        this.repos = value;
+      },
+      (error) => {
+        console.error('Request failed with error')
+          alert(error);
+      },
+      () => {                                   
+        console.log('Request completed')
+      }
+    )
   }
 
 }
