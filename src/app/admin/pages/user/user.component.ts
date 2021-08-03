@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   repos: Repos[];
 
   constructor(
-   public github: GithubService
+   private github: GithubService
   ) { }
 
   ngOnInit() {
