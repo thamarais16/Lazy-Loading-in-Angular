@@ -13,13 +13,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let repo of repos;">
-          <td>{{repo.id}}</td>
-          <td>{{repo.name}}</td>
-          <td>{{repo.html_url}}</td>
-          <td>{{repo.description}}</td>
-        </tr>
+        <!-- <ng-container *ngIf="(repos | async) as repoos; else elb"> -->
+          <tr *ngFor="let repo of repos;">
+            <td>{{repo.id}}</td>
+            <td>{{repo.name}}</td>
+            <td>{{repo.html_url}}</td>
+            <td>{{repo.description}}</td>
+          </tr>
+        <!-- </ng-container>
+        <ng-template #elb>
+          <p>Loading Please wait...</p>
+        </ng-template> -->
       </tbody>
     </table>
   </div>
 </div> 
+

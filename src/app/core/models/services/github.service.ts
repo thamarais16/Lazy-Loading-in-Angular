@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Repos } from "../repos";
-import { Observable } from "rxjs";
+import { pipe, Observable } from "rxjs";
+import {  shareReplay } from 'rxjs/operators';
 
 @Injectable()
 export class GithubService {
@@ -17,4 +18,4 @@ export class GithubService {
     return this.http.get<Repos[]>(this.baseURL + 'users/' + this.userName + '/repos');
   }
 
-}
+} 

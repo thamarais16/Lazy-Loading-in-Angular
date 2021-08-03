@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   repos: Repos[];
 
   constructor(
-   private github: GithubService
+   public github: GithubService
   ) { }
 
   ngOnInit() {
@@ -21,8 +21,9 @@ export class UserComponent implements OnInit {
   }
 
   getRepos(){
-    this.github.getRepos().subscribe(
+    this.repos = this.github.getRepos().subscribe(
       (value) => {
+        console.log(value);
         this.repos = value;
       },
       (error) => {
