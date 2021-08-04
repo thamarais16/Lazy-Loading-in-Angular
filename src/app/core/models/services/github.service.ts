@@ -23,7 +23,10 @@ export class GithubService {
     .set('page', '2');
 
     return this.http.get(this.baseURL + 'users/' + userName + '/repos' , {headers: header, params: param, withCredentials: true, observe: 'body', reportProgress: true}).pipe(
+      
       map((element)=>{
+        console.log(2);
+        console.log(element)
         return element;
       }),
       catchError((error)=>{
