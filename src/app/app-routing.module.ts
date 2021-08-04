@@ -8,7 +8,7 @@ const routes: Routes = [
   //{ path:"admin", loadChildren: ()=> import('./admin/admin.module').then(m => m.AdminModule ), data: {preload: true, delay: 15 * 1000 }},
   // { path: "testChild", loadChildren: "./test/test.module", data: {preload: true, delay: 10*1000 }}
   //{ path: 'test', loadChildren: ()=> import('./test/test.module').then(m => m.TestModule ), data: {preload: true, delay: 10*1000 }},
-  { path:"admin", loadChildren: ()=> import('./admin/admin.module').then(m => m.AdminModule ),data: {preload: true, delay: 3000} },
+  { path:"admin", loadChildren: ()=> import('./admin/admin.module').then(m => m.AdminModule ),data: {preload: true, delay: 2000} },
   { path: 'test', loadChildren: ()=> import('./test/test.module').then(m => m.TestModule ), canLoad:[AuthGuardService], data: {preload: false}  }
 ];
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes,  
-      { preloadingStrategy: CustomPreloadingStrategy }
+      { preloadingStrategy: CustomPreloadingStrategy } 
     )
   ],
  exports: [

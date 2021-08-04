@@ -10,28 +10,35 @@ import { Repos }from '../../../core/models/repos';
 })
 export class UserComponent implements OnInit {
 
+  userName: string = "tektutorialshub";
   repos: Repos[];
+  loading: boolean = false;
+  errorMessage: any;
 
   constructor(
    private github: GithubService
   ) { }
 
   ngOnInit() {
-    this.getRepos();
+    //this.getRepo();
   }
 
-  getRepos(){
-    this.repos = this.github.getRepos().subscribe(
+  getRepo(){
+    this.errorMessage = "";
+    this.loading = true;
+    this.github.getRepos(this.userName).subscribe(
       (value) => {
         console.log(value);
         this.repos = value;
       },
       (error) => {
-        console.error('Request failed with error')
-          alert(error);
+        console.error('Request failed with error');
+        this.errorMessage = error;
+        this.loading = false;
       },
       () => {                                   
-        console.log('Request completed')
+        console.log('Request completed');
+        this.loading = false;
       }
     )
   }

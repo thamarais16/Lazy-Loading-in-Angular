@@ -1,21 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Repos } from "../repos";
-import { pipe, Observable } from "rxjs";
-import {  shareReplay } from 'rxjs/operators';
+import { Observable, throwError } from "rxjs";
+import {  map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class GithubService {
 
-  userName: string = "tektutorialshub"
-  baseURL: string = "https://api.github.com/";
+  //userName: string = "tektutorialshub"
+  baseURL: string = "https://api.github.com/"; 
 
   constructor(
-    private http: HttpClient 
+    private http: HttpClient
   ) { }
 
-  getRepos(): Observable<any>{
-    return this.http.get<Repos[]>(this.baseURL + 'users/' + this.userName + '/repos');
+  getRepos(userName: string): Observable<any>{
+    const header = new HttpHeaders()
+    .set('Content-Type', 'application/json');
+
+    const param = new HttpParams()
+    .set('sort', 'description')
+    .set('page', '2');
+
+    return this.http.get(this.baseURL + 'users/' + userName + '/repos' , {headers: header, params: param, withCredentials: true, observe: 'body', reportProgress: true}).pipe(
+      map((element)=>{
+        return element;
+      }),
+      catchError((error)=>{
+        throw error;
+      })
+    );
   }
 
 } 
