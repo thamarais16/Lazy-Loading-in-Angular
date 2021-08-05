@@ -39,6 +39,7 @@ export class UserComponent implements OnInit {
   }
 
   getRepo(){
+    alert(this.some.nativeElement.value);
     this.errorMessage = "";
     this.loading = true;
     this.github.getRepos(this.userName).subscribe(
