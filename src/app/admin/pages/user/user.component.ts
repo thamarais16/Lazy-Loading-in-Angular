@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   loading: boolean = false;
   errorMessage: any;
   userName: string;
-  @ViewChild('some') some: ElementRef;
+  //@ViewChild('some') some: ElementRef;
   constructor(
    private github: GithubService
   ) { }
@@ -35,11 +35,12 @@ export class UserComponent implements OnInit {
 
   ngAfterViewInit(){
     console.log(this.userName);
-    this.some.nativeElement.value = 'Whale!';
+    console.log("http://localhost/");
+    //this.some.nativeElement.value = 'Whale!';
   }
 
   getRepo(){
-    alert(this.some.nativeElement.value);
+    //alert(this.some.nativeElement.value);
     this.errorMessage = "";
     this.loading = true;
     this.github.getRepos(this.userName).subscribe(
