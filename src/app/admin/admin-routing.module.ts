@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserComponent } from './pages/user/user.component';
 import { RightsComponent } from './pages/rights/rights.component';
+import { PeopleComponent } from "./pages";
 
 const routes: Routes = [
   /*{
@@ -12,7 +13,8 @@ const routes: Routes = [
     children: [*/
       { path:"dashboard", component: DashboardComponent },
       { path:"user", component: UserComponent },
-      { path:"rights", component: RightsComponent }
+      { path:"rights", component: RightsComponent },
+      { path:"people", component: PeopleComponent }
     /*]
   }*/
 ]

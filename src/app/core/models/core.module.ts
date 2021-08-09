@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GithubService }from './services';
+import { GithubService, PeopleListService }from './services';
 import { core } from '@angular/compiler';
 
 @NgModule({
@@ -11,6 +11,10 @@ import { core } from '@angular/compiler';
     {
       provide: GithubService,
       useClass: GithubService
+    },
+    {
+      provide: PeopleListService,
+      useClass: PeopleListService
     }
   ]
 })

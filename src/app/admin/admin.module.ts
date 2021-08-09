@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserComponent } from './pages/user/user.component';
 import { RightsComponent } from './pages/rights/rights.component';
 import { UserContentComponent } from './pages/user-content/user-content.component';
+import { PeopleComponent } from "./pages";
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent, 
     UserComponent,
     RightsComponent,
-    UserContentComponent
+    UserContentComponent,
+    PeopleComponent
   ],
   imports: [
     CommonModule,
