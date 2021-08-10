@@ -13,7 +13,7 @@ export class PeopleComponent implements OnInit {
 
   constructor(
     private list: PeopleListService
-  ) { }
+  ) { } 
 
   ngOnInit() {
     this.getPeople();

@@ -9,7 +9,7 @@ import { SharedModule } from './shared';
 import { CoreModule } from './core/models';
 import { CustomPreloadingStrategy } from './custom-preloading-strategy.service';
 import { AuthGuardService } from './auth-guard.service';
-
+declare var require: any;
 
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, SharedModule, CoreModule ],
