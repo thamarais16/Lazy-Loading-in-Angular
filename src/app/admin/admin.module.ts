@@ -25,6 +25,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminModule { 
   constructor(){
-    alert("admin modulae");
+    //alert("admin modulae");
   }
 }

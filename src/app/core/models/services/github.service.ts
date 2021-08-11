@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Repos } from "../repos";
 import { Observable, throwError } from "rxjs";
-import {  map, catchError } from 'rxjs/operators';
+import {  map, catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class GithubService {
@@ -15,24 +15,25 @@ export class GithubService {
   ) { }
 
   getRepos(userName: string): Observable<any>{
-    const header = new HttpHeaders()
-    .set('Content-Type', 'application/json');
 
-    const param = new HttpParams()
-    .set('sort', 'description')
-    .set('page', '2');
+    let params = new HttpParams({fromObject: {'page':'2', 'sort': 'name'}});
+    // .set('page', '1')
+    // .append('page', '2')
+    // .set('sort', 'name')
+    // .set('sort', 'description')
+     
+    // params = params.delete('page');
+    // params = params.delete('sort');
+    // console.log(params.toString());
+    let headers = new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Access-control-allow-origin', '*')
+    headers = headers.delete('content-type');
+    console.log(headers.keys())
 
-    return this.http.get(this.baseURL + 'users/' + userName + '/repos' , {headers: header, params: param, withCredentials: true, observe: 'body', reportProgress: true}).pipe(
-      
-      map((element)=>{
-        console.log(2);
-        console.log(element)
-        return element;
-      }),
-      catchError((error)=>{
-        throw error;
-      })
-    );
+    return this.http.get(this.baseURL + 'users/' + userName + '/repos', {params, headers} ).pipe(
+      tap(val=> console.log(val)),
+    )
   }
 
 } 
