@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ElementRef } from '@angular/core';
-import { GithubService }from '../../../core/models/services';
+import { GithubService, EmitterService }from '../../../core/models/services';
 import { Repos }from '../../../core/models/repos';
 import { Observable, of , from} from 'rxjs';
 import {map, pairwise, shareReplay, startWith} from 'rxjs/operators';
@@ -21,7 +21,8 @@ export class UserComponent implements OnInit {
   userName: string;
   //@ViewChild('some') some: ElementRef; 
   constructor(
-   private github: GithubService
+   private github: GithubService,
+   private emitter: EmitterService
   ) { }
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class UserComponent implements OnInit {
   }
 
   getRepo(){
+      this.emitter.nameEmit.subscribe(val => this.userName = val);
     //alert(this.some.nativeElement.value);
     this.errorMessage = "";
     this.loading = true;

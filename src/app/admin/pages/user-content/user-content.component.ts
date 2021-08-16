@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmitterService }from '../../../core/models/services';
 
 @Component({
   selector: 'user-content',
@@ -9,9 +10,14 @@ export class UserContentComponent implements OnInit {
   
   userName: string = "tektutorialshub";
   
-  constructor() { }
+  constructor(
+    private emitter: EmitterService
+  ) { }
 
   ngOnInit() {
   }
 
+  valChanged(val: any){
+    this.emitter.nameEmit.next(val);
+  }
 }

@@ -1,5 +1,5 @@
 <div class="form-inline">
   <label for="userName" class="mx-2 my-5" >User Name</label>
-  <input type="text" name="userName" [(ngModel)]="userName" class="form-control mx-2 my-5" />
+  <input type="text" name="userName" [ngModel]="userName" (ngModelChange)="valChanged($event)" class="form-control mx-2 my-5" />
   
 </div>
