@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   loading: boolean = false;
   errorMessage: any;
   userName: string;
-  //@ViewChild('some') some: ElementRef;
+  //@ViewChild('some') some: ElementRef; 
   constructor(
    private github: GithubService
   ) { }
@@ -34,8 +34,7 @@ export class UserComponent implements OnInit {
   };
 
   ngAfterViewInit(){
-    console.log(this.userName);
-    console.log("http://localhost/");
+    //console.log(this.userName);
     //this.some.nativeElement.value = 'Whale!';
   }
 

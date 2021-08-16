@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GithubService, PeopleListService }from './services';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { GithubService, PeopleListService, AppInterceptorService }from './services';
 import { core } from '@angular/compiler';
 
 @NgModule({
@@ -15,7 +16,13 @@ import { core } from '@angular/compiler';
     {
       provide: PeopleListService,
       useClass: PeopleListService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptorService,
+      multi: true
     }
+
   ]
 })
 export class CoreModule { 

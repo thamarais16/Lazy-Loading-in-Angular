@@ -16,7 +16,7 @@ export class GithubService {
 
   getRepos(userName: string): Observable<any>{
 
-    let params = new HttpParams({fromObject: {'page':'2', 'sort': 'name'}});
+    let params = new HttpParams({fromObject: {'page':'2', 'sort': 'name'}}); 
     // .set('page', '1')
     // .append('page', '2')
     // .set('sort', 'name')
@@ -25,13 +25,13 @@ export class GithubService {
     // params = params.delete('page');
     // params = params.delete('sort');
     // console.log(params.toString());
-    let headers = new HttpHeaders()
-    .set('content-type', 'application/json')
-    .set('Access-control-allow-origin', '*')
-    headers = headers.delete('content-type');
-    console.log(headers.keys())
+    // let headers = new HttpHeaders()
+    // .set('content-type', 'application/json')
+    // .set('Access-control-allow-origin', '*')
+    // headers = headers.delete('content-type');
+    // console.log(headers.keys())
 
-    return this.http.get(this.baseURL + 'users/' + userName + '/repos', {params, headers} ).pipe(
+    return this.http.get(this.baseURL + 'users/' + userName + '/repos').pipe(
       tap(val=> console.log(val)),
     )
   }
