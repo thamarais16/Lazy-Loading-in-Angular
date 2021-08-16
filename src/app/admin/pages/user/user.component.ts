@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ElementRef, ViewChildren } from '@angular/core';
 import { GithubService, EmitterService }from '../../../core/models/services';
 import { Repos }from '../../../core/models/repos';
 import { Observable, of , from} from 'rxjs';
@@ -29,10 +29,10 @@ export class UserComponent implements OnInit {
     //this.getRepo();
   }
 
-  @ViewChild(UserContentComponent)
-  set userContent(directive: UserContentComponent){
-    this.userName = directive.userName;
-  };
+  // @ViewChildren(UserContentComponent)
+  // set userContent(directive: UserContentComponent){
+  //   this.userName = directive.userName;
+  // };
 
   ngAfterViewInit(){
     //console.log(this.userName);
@@ -40,7 +40,7 @@ export class UserComponent implements OnInit {
   }
 
   getRepo(){
-      this.emitter.nameEmit.subscribe(val => this.userName = val);
+      this.emitter.nameEmit.subscribe(val => {alert(val); this.userName = val});
     //alert(this.some.nativeElement.value);
     this.errorMessage = "";
     this.loading = true;
