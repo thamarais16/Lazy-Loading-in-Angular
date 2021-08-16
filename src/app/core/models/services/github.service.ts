@@ -8,7 +8,7 @@ import {  map, catchError, tap } from 'rxjs/operators';
 export class GithubService {
 
   //userName: string = "tektutorialshub"
-  baseURL: string = "https://api.github.com/"; 
+  //baseURL: string = "https://api.github.com/"; 
 
   constructor(
     private http: HttpClient
@@ -31,7 +31,7 @@ export class GithubService {
     // headers = headers.delete('content-type');
     // console.log(headers.keys())
 
-    return this.http.get(this.baseURL + 'users/' + userName + '/repos').pipe(
+    return this.http.get( 'users/' + userName + '/repos').pipe(
       tap(val=> console.log(val)),
     )
   }
